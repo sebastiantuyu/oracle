@@ -1,0 +1,13 @@
+// Use Raleway as global style
+@import 'https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600&display=swap';
+
+// Global variables
+$white: #f2f2f2;
+$purple: #A5A6F6;
+$dark: #000;
+
+// global-font-letter
+body {
+    font-family: 'Raleway';
+    background: $white;
+}
