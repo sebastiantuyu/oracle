@@ -1,0 +1,28 @@
+.odl-resultsrow {
+    width: 100%;
+    height: 85px;
+    display: flex;
+    cursor: pointer;
+
+    &__title {
+        width: 80%;
+        height: 100%;
+        padding: 0 0 0 25px;
+    }
+
+    &__thumbnail {
+        width: 20%;
+        height: 100%;
+
+        &--img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } 
+    }
+
+    .vertical--center {
+        display: flex;
+        align-items: center;
+    }
+}

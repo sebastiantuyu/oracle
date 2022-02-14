@@ -11,7 +11,7 @@ export default function index() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/results" element={<Result />} />
+        <Route path="/result/:id" element={<Result />} />
       </Routes>
     </BrowserRouter>      
   )
