@@ -1,8 +1,11 @@
 .odl-resultstable {
     margin: 25px 0 0 0;
     width: 70%;
-    background: #fff;
+    max-width: 600px;
     max-height: calc(85px * 7);
+    position: absolute;
+    left: 0; right: 0;
+    margin:auto;
 }
 
 .enable--scroll {

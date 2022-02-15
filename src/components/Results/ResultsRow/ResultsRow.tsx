@@ -9,19 +9,20 @@ interface IProps {
 
 export default function ResultsRow({ data }: IProps) {
   const navigateTo = useNavigate()
-  
+
   const goToResultPage = () => {
     navigateTo(`/result/${data.id}`)
   }
-  
+
   return (
     <div onClick={() => goToResultPage()}
       className="odl-resultsrow vertical--center">
-        <div className="odl-resultsrow__title vertical--center">
-            {data.title}
-        </div>
         <div className="odl-resultsrow__thumbnail">
             <img className="odl-resultsrow__thumbnail--img" src={data.photo} alt={data.shortDescription} />
+        </div>
+        <div className="odl-resultsrow__title vertical--center">
+            <p>{data.title}</p>
+            <p className="odl-resultsrow__title--sub">{data.shortDescription}</p>
         </div>
     </div>
   )
