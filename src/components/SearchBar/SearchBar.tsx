@@ -37,7 +37,7 @@ export default function SearchBar({ onSearch, shouldTriggerSearch, replaceOnSear
 
       // fetch to server
       setIsSearching(true)
-      const response = await APIService.getResultsByQuery(query ?? param_.query);
+      const response = await APIService.getResultsByQuery(query ===  ''  ? param_.query : query);
       setLastResults(response)
       setIsSearching(false)
     }
