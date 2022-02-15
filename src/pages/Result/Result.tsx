@@ -7,7 +7,7 @@ import GoBackArrow from "../../assets/svgs/go-back-arrow.svg";
 import "./Result.scss"
 import LoaderWrapper from '../../components/LoaderWrapper/LoaderWrapper';
 
-function Result(props: any) {
+function Result() {
   const navigation = useNavigate()
   const [item, setItem] = useState<IResultsRow>()
   const [isLoading, setIsLoading] = useState(true)
@@ -47,14 +47,14 @@ function Result(props: any) {
         </button>
 
         <div className="information-box">
-          <LoaderWrapper style={{width: `${80}%`, height: `${40}px`}} loading={isLoading}>
+          <LoaderWrapper loading={isLoading}>
             <div className="information-box__title">
                 {item?.title}
             </div>
           </LoaderWrapper>
 
           <p className="information-box__sectionHeader">Descripcion</p>
-          <LoaderWrapper style={{ width: `${80}%`, height: `${200}px`}} loading={isLoading}>
+          <LoaderWrapper style={{ height: `${200}px` }} loading={isLoading}>
             <div className="information-box__description">
               {item?.description}
             </div>

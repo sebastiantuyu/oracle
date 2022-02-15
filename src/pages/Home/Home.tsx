@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import ResultsTable from '../../components/Results/ResultsTable/ResultsTable';
+import React, { useContext, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import IResultsRow from '../../DTOs/DTOs';
+import { QuerySearchContext } from '../../context/QuerySearchContext';
 import './Home.scss'
 
 function Home() {
-  const [results, setResults] = useState<IResultsRow[]>([])
-  
+  const navigateTo = useNavigate();
+  const [globalQuery, _] = useContext(QuerySearchContext);
+
+  const proceedToSearch = () => {
+    navigateTo(`/search/${globalQuery}`)
+  }
+
   return (
     <div className="odl-container">
-
       <div className="odl-container__wrapper">
-        <div className="odl-container__wrapper--brand">Oracle</div>
-          <SearchBar onSearch={setResults}/>
+          <SearchBar
+            onSearch={proceedToSearch}
+            shouldTriggerSearch={false}
+            replaceOnSearch={false}
+            />
       </div>
-
-
-      <ResultsTable results={results}/>
     </div>
   )
 }

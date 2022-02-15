@@ -1,14 +1,7 @@
 import React from 'react'
 import "./LoaderWrapper.scss"
 
-interface IProps {
-    loading: boolean;
-    width: number;
-    height: number;
-}
-
-function LoaderWrapper(props: any, { width, height }: IProps) {
-    console.log(props.loading, props.width, props.height )
+function LoaderWrapper(props: any) {
     if (props.loading) {
         return (
             <div

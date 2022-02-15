@@ -32,3 +32,13 @@
         }
     }
 }
+
+.brand {
+    text-align: center;
+    font-size: 55px;
+    margin: 15px 0 0 0;
+
+    &__letters {
+        cursor: pointer;
+    }
+}
