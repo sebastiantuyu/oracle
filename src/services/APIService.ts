@@ -15,12 +15,12 @@ class HandleEnvoiroment {
 
     async getResultsByQuery (query: string): Promise<IResultsRow[]> {
         //@ts-ignore
-        const { matched } = (await this.prepareFetch('search/?query=something'))
-        return matched;
+        const { matched } = (await this.prepareFetch(`search/${query}`))
+        return matched?.length === 0 ? undefined : matched;
     }
 
     async getResultsById (id: string) {
-        return await this.prepareFetch('result/?id=0');
+        return await this.prepareFetch(`result/${id}`);
     }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import IResultsRow from '../../../DTOs/DTOs'
+import ResultsEmpty from '../ResultsEmpty/ResultsEmpty'
 import ResultsRow from '../ResultsRow/ResultsRow'
 import "./ResultsTable.scss"
 
@@ -9,20 +10,24 @@ interface IProps {
 
 export default function ResultsTable({ results }: IProps) {
     const renderRows = () => {
+       if(results === undefined) {
+        return (<ResultsEmpty />)
+       } else {
         return results.map((e: IResultsRow, index: number) => {
             return (
                 <ResultsRow data={e} key={index}/>
             )
         })
+       }
     }
 
     const enableScrollItems = () => {
         return "odl-resultstable "
-            + ((results.length > 7) 
+            + ((results?.length > 7)
             ? "enable--scroll"
             : "")
     }
-  
+
     return (
     <div className={enableScrollItems()}>
         <div
