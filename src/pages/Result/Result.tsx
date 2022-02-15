@@ -32,7 +32,7 @@ function Result() {
   const renderContentOrSpinner = () => {
     return isLoading
       ? <TailSpin width={80} height={80} color="#000000" />
-      : <img src={item?.photo} alt={item?.shortDescription} />
+      : <img src={item?.photo} alt={item?.shortDescription} className="fullsize--img"/>
   }
 
   return (
