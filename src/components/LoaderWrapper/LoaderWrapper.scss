@@ -1,0 +1,27 @@
+.empty-div {
+    height: 40px;
+    width: 80%;
+    margin:50px auto auto auto;
+    border-radius: 15px;
+
+    align-self: center;
+
+    background: grey;
+    animation-name: loading;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes loading {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}

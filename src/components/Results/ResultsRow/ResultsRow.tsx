@@ -21,7 +21,7 @@ export default function ResultsRow({ data }: IProps) {
             {data.title}
         </div>
         <div className="odl-resultsrow__thumbnail">
-            <img className="odl-resultsrow__thumbnail--img" src={data.thumbnail} alt={data.alt} />
+            <img className="odl-resultsrow__thumbnail--img" src={data.photo} alt={data.shortDescription} />
         </div>
     </div>
   )
