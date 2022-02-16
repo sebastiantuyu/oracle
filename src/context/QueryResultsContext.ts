@@ -1,5 +1,4 @@
 import { createContext } from "react";
 import IResultsRow from "../DTOs/DTOs";
 
-
-export const QueryResultsContext = createContext([[] as IResultsRow[],() => {}])
+export const QueryResultsContext = createContext([[] as IResultsRow[], () => {}]);

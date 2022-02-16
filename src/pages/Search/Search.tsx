@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
-import ResultsTable from '../../components/Results/ResultsTable/ResultsTable'
-import SearchBar from '../../components/SearchBar/SearchBar'
-import { QueryResultsContext } from '../../context/QueryResultsContext'
-import "./Search.scss"
+import React, { useContext } from "react";
+import ResultsTable from "../../components/Results/ResultsTable/ResultsTable";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import { QueryResultsContext } from "../../context/QueryResultsContext";
+import "./Search.scss";
 
 export default function Search() {
-  const [lastResults, ,]: any = useContext(QueryResultsContext)
+  const [lastResults, ,]: any = useContext(QueryResultsContext);
 
   return (
     <div className="odl-search">
@@ -19,5 +19,5 @@ export default function Search() {
         <ResultsTable results={lastResults} />
       </div>
     </div>
-  )
+  );
 }

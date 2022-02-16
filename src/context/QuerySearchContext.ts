@@ -1,4 +1,3 @@
 import { createContext } from "react";
 
-
-export const QuerySearchContext = createContext(["",() => {}])
+export const QuerySearchContext = createContext(["", () => {}]);

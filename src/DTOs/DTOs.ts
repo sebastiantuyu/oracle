@@ -1,3 +1,4 @@
+/* eslint-disable semi */
 export default interface IResultsRow {
     id: string;
     title: string;

@@ -1,39 +1,39 @@
-import React, { useEffect, useState } from 'react'
-import { TailSpin } from 'react-loader-spinner';
-import { useNavigate, useParams } from 'react-router-dom';
-import IResultsRow from '../../DTOs/DTOs';
-import APIService from '../../services/APIService';
+import React, { useEffect, useState } from "react";
+import { TailSpin } from "react-loader-spinner";
+import { useNavigate, useParams } from "react-router-dom";
+import IResultsRow from "../../DTOs/DTOs";
+import APIService from "../../services/APIService";
 import GoBackArrow from "../../assets/svgs/go-back-arrow.svg";
-import "./Result.scss"
-import LoaderWrapper from '../../components/LoaderWrapper/LoaderWrapper';
+import "./Result.scss";
+import LoaderWrapper from "../../components/LoaderWrapper/LoaderWrapper";
 
 function Result() {
-  const navigation = useNavigate()
-  const [item, setItem] = useState<IResultsRow>()
-  const [isLoading, setIsLoading] = useState(true)
-  const params = useParams()
+  const navigation = useNavigate();
+  const [item, setItem] = useState<IResultsRow>();
+  const [isLoading, setIsLoading] = useState(true);
+  const params = useParams();
 
   useEffect(() => {
 
     if (params.id) {
       APIService.getResultsById(params.id.toString())
         .then((result) => {
-          setItem(result)
-          setIsLoading(false)
+          setItem(result);
+          setIsLoading(false);
         })
-        .catch((e) => console.error(e))
+        .catch((e) => console.error(e));
     }
   }, []);
 
   const goBack = () => {
-    navigation(-1)
-  }
+    navigation(-1);
+  };
 
   const renderContentOrSpinner = () => {
     return isLoading
       ? <TailSpin width={80} height={80} color="#000000" />
-      : <img src={item?.photo} alt={item?.shortDescription} className="fullsize--img"/>
-  }
+      : <img src={item?.photo} alt={item?.shortDescription} className="fullsize--img"/>;
+  };
 
   return (
     <div className="odl-result">
@@ -65,7 +65,7 @@ function Result() {
         { renderContentOrSpinner() }
       </div>
     </div>
-  )
+  );
 }
 
 export default Result;

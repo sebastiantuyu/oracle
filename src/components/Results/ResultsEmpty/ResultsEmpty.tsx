@@ -1,6 +1,6 @@
-import React from 'react'
-import "./ResultsEmpty.scss"
-import DeadIcon from "../../../assets/svgs/dead-icon.svg"
+import React from "react";
+import "./ResultsEmpty.scss";
+import DeadIcon from "../../../assets/svgs/dead-icon.svg";
 
 export default function ResultsEmpty() {
   return (
@@ -9,8 +9,8 @@ export default function ResultsEmpty() {
             <img src={DeadIcon} className="odl-empres__icon--img" alt="result not found" />
         </p>
         <p className="odl-empres__text">
-            Ups, we couldn't find anything.
+            Ups, we couldn&apos;t find anything.
         </p>
     </div>
-  )
+  );
 }

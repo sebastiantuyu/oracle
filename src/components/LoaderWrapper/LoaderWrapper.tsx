@@ -1,5 +1,5 @@
-import React from 'react'
-import "./LoaderWrapper.scss"
+import React from "react";
+import "./LoaderWrapper.scss";
 
 function LoaderWrapper(props: any) {
     if (props.loading) {
@@ -8,7 +8,7 @@ function LoaderWrapper(props: any) {
                 className="empty-div"
                 style={props.style}
             ></div>
-        )
+        );
     } else {
         return props.children;
     }

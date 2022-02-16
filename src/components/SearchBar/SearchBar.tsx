@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './SearchBar.scss'
-import AppIcon from '../../assets/svgs/app-icon.svg'
-import APIService from '../../services/APIService'
-import { TailSpin } from 'react-loader-spinner'
-import { QuerySearchContext } from '../../context/QuerySearchContext'
-import { QueryResultsContext } from '../../context/QueryResultsContext'
-import { useNavigate, useParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from "react";
+import "./SearchBar.scss";
+import AppIcon from "../../assets/svgs/app-icon.svg";
+import APIService from "../../services/APIService";
+import { TailSpin } from "react-loader-spinner";
+import { QuerySearchContext } from "../../context/QuerySearchContext";
+import { QueryResultsContext } from "../../context/QueryResultsContext";
+import { useNavigate, useParams } from "react-router-dom";
 
 interface IProps {
   onSearch: any;
@@ -15,50 +15,50 @@ interface IProps {
 
 
 export default function SearchBar({ onSearch, shouldTriggerSearch, replaceOnSearch = false }: IProps) {
-  const [_, setLastResults]: any = useContext(QueryResultsContext)
-  const [query, setQuery]: any = useContext(QuerySearchContext)
-  const [isSearching, setIsSearching] = useState(false)
-  const [canReplace, setCanReplace] = useState(false)
-  const param_ = useParams()
+  const [_, setLastResults]: any = useContext(QueryResultsContext);
+  const [query, setQuery]: any = useContext(QuerySearchContext);
+  const [isSearching, setIsSearching] = useState(false);
+  const [canReplace, setCanReplace] = useState(false);
+  const param_ = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     if((param_ as any).query) {
       setQuery((param_ as any).query);
-      triggerSearch().then(() => setCanReplace(true))
+      triggerSearch().then(() => setCanReplace(true));
     }
-  }, [])
+  }, []);
 
   const triggerSearch = async () => {
     if(shouldTriggerSearch && (query || param_.query)) {
       if(replaceOnSearch && canReplace) {
-       navigate(`/search/${query}`)
+       navigate(`/search/${query}`);
       }
 
       // fetch to server
-      setIsSearching(true)
-      const response = await APIService.getResultsByQuery(query ===  ''  ? param_.query : query);
-      setLastResults(response)
-      setIsSearching(false)
+      setIsSearching(true);
+      const response = await APIService.getResultsByQuery(query ===  ""  ? param_.query : query);
+      setLastResults(response);
+      setIsSearching(false);
     }
-    onSearch()
-  }
+    onSearch();
+  };
 
   const goToHome = () => {
-    navigate('/')
-  }
+    navigate("/");
+  };
 
   const renderButtonIcon = () => {
     return isSearching
       ? <TailSpin color="#000000" height={30} width={30} />
-      : <img src={AppIcon} alt="oracle search icon" className='odl-searchbar__button--icon'/>
-  }
+      : <img src={AppIcon} alt="oracle search icon" className='odl-searchbar__button--icon'/>;
+  };
 
   const submitFromEnterKey = (event: any) => {
-    if(event.key === 'Enter') {
-      triggerSearch()
+    if(event.key === "Enter") {
+      triggerSearch();
     }
-  }
+  };
 
   return (
     <>
@@ -90,5 +90,5 @@ export default function SearchBar({ onSearch, shouldTriggerSearch, replaceOnSear
         </button>
     </div>
     </>
-  )
+  );
 }
