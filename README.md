@@ -2,6 +2,8 @@
 
 Oracle is a search engine design to find, whatever you were looking for.
 
+
+![oracle-search-engine](https://github.com/sebastiantuyu/oracle/blob/master/oracle-cover.png)
 ## How to use
 
 Create a file .env to provide configs for the project
