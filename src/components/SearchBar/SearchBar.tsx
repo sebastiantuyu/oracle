@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './SearchBar.scss'
 import AppIcon from '../../assets/svgs/app-icon.svg'
 import APIService from '../../services/APIService'
@@ -63,7 +63,12 @@ export default function SearchBar({ onSearch, shouldTriggerSearch, replaceOnSear
   return (
     <>
     <div className="brand">
-      <span className="brand__letters" onClick={() => goToHome()}>Oracle</span>
+      <span
+        data-testid="brand"
+        className="brand__letters"
+        onClick={() => goToHome()}>
+        Oracle
+      </span>
     </div>
     <div className='odl-searchbar'>
         <input
@@ -74,10 +79,12 @@ export default function SearchBar({ onSearch, shouldTriggerSearch, replaceOnSear
           onKeyPress={(event) => submitFromEnterKey(event)}
           placeholder="Why don't search something funny?"
           value={query}
+          data-testid="input"
         />
         <button
           className='odl-searchbar__button'
           onClick={() => triggerSearch()}
+          data-testid="button"
         >
           { renderButtonIcon() }
         </button>

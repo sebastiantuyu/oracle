@@ -29,7 +29,7 @@ export default function ResultsTable({ results }: IProps) {
     }
 
     return (
-    <div className={enableScrollItems()}>
+    <div data-testid="results-wrapper" className={enableScrollItems()}>
         <div
          className="odl-resultstable__container">
             {renderRows()}
